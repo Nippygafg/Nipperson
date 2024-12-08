@@ -41,6 +41,6 @@ function iniciarAnimacao() {
         ritualDiv.style.display = "none";
 
         const body = document.body;
-        body.innerHTML = "<h1 style='color: #00ff00; text-align: center; font-size: 2.5rem;'>Amaldiçoar Arma (Energia)</h1>";
+        body.innerHTML = "<h1 style='color: #00ff00; text-align: center; font-size: 2.5rem;'>Amaldiçoar Arma (Conhecimento)</h1>";
     }, 5000);
 }
