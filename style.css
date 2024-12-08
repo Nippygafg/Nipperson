@@ -49,17 +49,37 @@ p {
     font-size: 1.2rem;
 }
 
-#ritualSection {
+.ritual-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
-.ritual-image {
-    width: 80%;
-    max-width: 400px;
-    margin-bottom: 20px;
-    border: 2px solid #00ff00;
+.ritual-imagem {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: url('https://i.pinimg.com/originals/02/39/cb/0239cb155136cc189c20b1b46c5b128c.png') no-repeat center/cover;
+    box-shadow: 0 0 30px #00ff00;
+    animation: pulsar 3s infinite ease-in-out;
+}
+
+.botao-conhecimento {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #00ff00;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+    animation: pulsar 2s infinite ease-in-out;
+}
+
+.botao-conhecimento:hover {
+    background-color: #005500;
+    color: white;
 }
 
 #animationOverlay {
@@ -68,7 +88,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.7), rgba(0, 0, 0, 0.9));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,18 +96,27 @@ p {
     font-size: 1.5rem;
     text-align: center;
     z-index: 1000;
+    animation: fadeOut 5s forwards;
 }
 
-.animation {
-    animation: flicker 0.3s infinite alternate;
+@keyframes pulsar {
+    0%, 100% {
+        box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 50px #00ff00, 0 0 70px #00ff00;
+        transform: scale(1.1);
+    }
 }
 
-@keyframes flicker {
-    from {
+@keyframes fadeOut {
+    0% {
         opacity: 1;
     }
-    to {
-        opacity: 0.5;
+    100% {
+        opacity: 0;
     }
 }
+
 
