@@ -49,19 +49,11 @@ p {
     font-size: 1.2rem;
 }
 
-.ritual-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .ritual-imagem {
     width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: url('https://i.pinimg.com/originals/02/39/cb/0239cb155136cc189c20b1b46c5b128c.png') no-repeat center/cover;
+    height: auto;
+    margin: 20px 0;
+    border: 2px solid #00ff00;
     box-shadow: 0 0 30px #00ff00;
     animation: pulsar 3s infinite ease-in-out;
 }
@@ -74,7 +66,6 @@ p {
     color: black;
     font-size: 1.2rem;
     cursor: pointer;
-    animation: pulsar 2s infinite ease-in-out;
 }
 
 .botao-conhecimento:hover {
@@ -118,5 +109,3 @@ p {
         opacity: 0;
     }
 }
-
-
