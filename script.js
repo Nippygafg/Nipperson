@@ -29,23 +29,18 @@ function checkAnswer() {
 
 function iniciarAnimacao() {
     const animationOverlay = document.getElementById("animationOverlay");
+    const ritualDiv = document.getElementById("ritual");
 
     // Mostra a animação
     animationOverlay.style.display = "flex";
     animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
 
-    // Finaliza a animação e fecha o site
+    // Finaliza a animação e mostra o nome do ritual
     setTimeout(() => {
-        animationOverlay.innerHTML = "<p>Ritual aprendido!</p>";
+        animationOverlay.style.display = "none";
+        ritualDiv.style.display = "none";
 
-        // Aguarda um tempo antes de fechar o site
-        setTimeout(() => {
-            if (window.opener) {
-                // Fecha apenas se o site foi aberto por script
-                window.close();
-            } else {
-                alert("O site não pode ser fechado automaticamente. Feche a aba manualmente.");
-            }
-        }, 2000);
-    }, 3000);
+        const body = document.body;
+        body.innerHTML = "<h1 style='color: #00ff00; text-align: center; font-size: 2.5rem;'>Amaldiçoar Arma (Energia)</h1>";
+    }, 5000);
 }
