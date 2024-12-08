@@ -20,7 +20,7 @@ function checkAnswer() {
 
     if (userAnswer === correctAnswer) {
         cipherDiv.style.display = "none";
-        ritualDiv.style.display = "flex";
+        ritualDiv.style.display = "block";
     } else {
         const responseDiv = document.getElementById("response");
         responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
@@ -40,4 +40,3 @@ function iniciarAnimacao() {
         }, 2000);
     }, 3000);
 }
-
