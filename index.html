@@ -1,38 +1,48 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martírio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Martírio</h1>
-        <p>Digite a palavra para começar o enigma.</p>
+function startEnigma() {
+    const userInput = document.getElementById("initialInput").value.trim().toLowerCase();
+    const correctStart = "doom";
+    const initialStepDiv = document.getElementById("initialStep");
+    const cipherDiv = document.getElementById("cipher");
 
-        <div id="initialStep">
-            <input type="text" id="initialInput" placeholder="Digite a palavra">
-            <button onclick="startEnigma()">Iniciar Enigma</button>
-        </div>
+    if (userInput === correctStart) {
+        initialStepDiv.style.display = "none";
+        cipherDiv.style.display = "block";
+    } else {
+        alert("Resposta incorreta! Tente novamente.");
+    }
+}
 
-        <div id="cipher" style="display: none;">
-            <p>Palavra criptografada: <strong>jxiafçãl</strong></p>
-            <p>Dica: +3</p>
-            <input type="text" id="answer" placeholder="Digite sua resposta">
-            <button onclick="checkAnswer()">Responder</button>
-        </div>
+function checkAnswer() {
+    const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+    const correctAnswer = "maldição";
+    const cipherDiv = document.getElementById("cipher");
+    const ritualDiv = document.getElementById("ritual");
 
-        <div id="response"></div>
+    if (userAnswer === correctAnswer) {
+        cipherDiv.style.display = "none";
+        ritualDiv.style.display = "flex";
+    } else {
+        const responseDiv = document.getElementById("response");
+        responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
+    }
+}
 
-        <div id="ritualSection" style="display: none;">
-            <img src="https://i.pinimg.com/originals/02/39/cb/0239cb155136cc189c20b1b46c5b128c.png" alt="Imagem do Ritual" class="ritual-image">
-            <button id="learnRitual" onclick="absorbRitual()">Aprender Ritual</button>
-        </div>
+function iniciarAnimacao() {
+    const animacaoDiv = document.createElement("div");
+    animacaoDiv.className = "animacao";
 
-        <div id="animationOverlay" style="display: none;"></div>
-    </div>
+    const mensagem = document.createElement("p");
+    mensagem.innerText = "Absorvendo conhecimento...";
+    mensagem.style.color = "#00ff00";
+    mensagem.style.fontSize = "1.5rem";
+    mensagem.style.textAlign = "center";
 
-    <script src="script.js"></script>
-</body>
-</html>
+    animacaoDiv.appendChild(mensagem);
+    document.body.innerHTML = ""; // Limpa a página atual
+    document.body.appendChild(animacaoDiv);
+
+    setTimeout(() => {
+        alert("Ritual aprendido!");
+        window.close(); // Fecha o site
+    }, 5000); // Animação de 5 segundos
+}
