@@ -15,32 +15,29 @@ function startEnigma() {
 function checkAnswer() {
     const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
     const correctAnswer = "maldição";
-    const responseDiv = document.getElementById("response");
-    const ritualSection = document.getElementById("ritualSection");
+    const cipherDiv = document.getElementById("cipher");
+    const ritualDiv = document.getElementById("ritual");
 
     if (userAnswer === correctAnswer) {
-        responseDiv.innerHTML = "<p style='color: green;'>Resposta correta! A imagem do ritual será exibida.</p>";
-        setTimeout(() => {
-            responseDiv.style.display = "none";
-            ritualSection.style.display = "block";
-        }, 1000);
+        cipherDiv.style.display = "none";
+        ritualDiv.style.display = "flex";
     } else {
+        const responseDiv = document.getElementById("response");
         responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
     }
 }
 
-function absorbRitual() {
+function iniciarAnimacao() {
     const animationOverlay = document.getElementById("animationOverlay");
 
-    // Mostrar a animação
-    animationOverlay.style.display = "block";
-    animationOverlay.innerHTML = "<div class='animation'>Absorvendo o conhecimento...</div>";
+    animationOverlay.style.display = "flex";
+    animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
 
-    // Finalizar a animação e fechar o site
     setTimeout(() => {
-        animationOverlay.innerHTML = "<div class='animation'>Conhecimento absorvido!</div>";
+        animationOverlay.innerHTML = "<p>Ritual aprendido!</p>";
         setTimeout(() => {
             window.close();
         }, 2000);
     }, 3000);
 }
+
