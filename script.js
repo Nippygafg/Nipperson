@@ -30,13 +30,22 @@ function checkAnswer() {
 function iniciarAnimacao() {
     const animationOverlay = document.getElementById("animationOverlay");
 
+    // Mostra a animação
     animationOverlay.style.display = "flex";
     animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
 
+    // Finaliza a animação e fecha o site
     setTimeout(() => {
         animationOverlay.innerHTML = "<p>Ritual aprendido!</p>";
+
+        // Aguarda um tempo antes de fechar o site
         setTimeout(() => {
-            window.close();
+            if (window.opener) {
+                // Fecha apenas se o site foi aberto por script
+                window.close();
+            } else {
+                alert("O site não pode ser fechado automaticamente. Feche a aba manualmente.");
+            }
         }, 2000);
     }, 3000);
 }
